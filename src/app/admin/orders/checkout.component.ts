@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OrdersService } from '../services/orders.service';
+import { OrdersService } from '../../admin/services/orders.service';
 import { NgForm } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 

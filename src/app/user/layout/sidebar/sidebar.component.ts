@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import { CategoriesService } from 'src/app/services/categories.service';
+import { CategoriesService } from 'src/app/user/services/categories.service';
 
 @Component({
   selector: 'app-sidebar',
