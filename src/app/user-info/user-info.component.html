@@ -1,0 +1,79 @@
+<section style="background-color: #eee;">
+    <div class="container py-5">
+      
+  
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="card mb-4">
+            <div class="card-body text-center">
+              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+                class="rounded-circle img-fluid" style="width: 150px; transform: translateX(75%);">
+              <h5 class="my-3">{{username}}</h5>
+              <div class="d-flex justify-content-center mb-2">
+                <button type="button" class="btn btn-primary">Follow</button>
+                <button type="button" class="btn btn-outline-primary ms-1">Message</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8">
+          <div class="card mb-4">
+            <div class="card-body">
+              <div class="row info-input">
+                <div class="col-sm-3">
+                  <p class="mb-0">First Name</p>
+                </div>
+                <div class="col-sm-9">
+                    <input type="text" name="firstName" id="" [(ngModel)]="profile.FirstName" class="input" [attr.disabled]="editable ? null : 'disabled'"/>
+                  <!-- <p class="text-muted mb-0">Johnatan Smith</p> -->
+                </div>
+              </div>
+              <hr>
+              <div class="row info-input">
+                <div class="col-sm-3">
+                  <p class="mb-0">Last Name</p>
+                </div>
+                <div class="col-sm-9">
+                    <input type="text" name="lastName" id="" [(ngModel)]="profile.LastName" class="input" [attr.disabled]="editable ? null : 'disabled'">
+                  <!-- <p class="text-muted mb-0">Johnatan Smith</p> -->
+                </div>
+              </div>
+              <hr>
+              <div class="row info-input">
+                <div class="col-sm-3">
+                  <p class="mb-0">Email</p>
+                </div>
+                <div class="col-sm-9">
+                  <input type="text" name="email" id="" [(ngModel)]="profile.Email" class="input" [attr.disabled]="editable ? null : 'disabled'">
+                </div>
+              </div>
+              <hr>
+              <div class="row info-input">
+                <div class="col-sm-3">
+                  <p class="mb-0">Phone</p>
+                </div>
+                <div class="col-sm-9">
+                  <input type="text" name="phone" id=""[(ngModel)]="profile.Phone" class="input" [attr.disabled]="editable ? null : 'disabled'">
+                </div>
+              </div>
+              <hr>
+              <div class="row info-input">
+                <div class="col-sm-3">
+                  <p class="mb-0">Address</p>
+                </div>
+                <div class="col-sm-9">
+                    <input type="text" name="" id="" [(ngModel)]="profile.Address" class="input" [attr.disabled]="editable ? null : 'disabled'">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex justify-content-center mb-2">
+            <!-- <button type="button" class="btn btn-primary">Edit</button> -->
+            <button  *ngIf="editable == false" type="button" (click)="startEdit()" class="btn btn-outline-primary ms-1">Edit profile</button>
+            <button *ngIf="editable == true" class="btn btn-outline-danger ms-1" (click)="cancelEdit()">Cancel</button>
+            <button *ngIf="editable == true" class="btn btn-outline-success ms-1" (click)="saveProfileUpdate()">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

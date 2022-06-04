@@ -1,0 +1,111 @@
+<form action="">
+  <div class="filter-widget">
+    <h4 class="fw-title">Categories</h4>
+    <ul class="filter-catagories">
+      <li *ngFor="let category of categories"><a href="">{{category.name}}</a></li>
+    </ul>
+  </div>
+  <div class="filter-widget">
+    <h4 class="fw-title">Brand</h4>
+    <div class="fw-brand-check">
+
+      <div *ngFor="let brand of brands" class="bc-item">
+        <label for="bc-brand-{{brand.id}}">
+          {{brand.name}}
+          <input
+            type="checkbox"
+            name="brand-calvin-klein"
+            id="bc-brand-{{brand.id}}"
+            onchange="this.form.submit()"
+          >
+          <span class="checkmark"></span>
+        </label>
+      </div>
+
+    </div>
+  </div>
+  <div class="filter-widget">
+    <h4 class="fw-title">Price</h4>
+    <div class="filter-range-wrap">
+      <div class="range-slider">
+        <div class="price-input">
+          <input type="text" name="price_min" id="minamount">
+          <input type="text" name="price_max" id="maxamount">
+        </div>
+      </div>
+      <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
+           data-min="10" data-max="999"
+           data-min-value=""
+           data-max-value="">
+        <div class="ui-slider-range ui-corner-all ui-widget-header"></div>
+        <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
+        <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
+      </div>
+    </div>
+    <button type="submit" class="filter-btn">Filter</button>
+  </div>
+  <div class="filter-widget">
+    <h4 class="fw-title">Color</h4>
+    <div class="fw-color-choose">
+      <div class="cs-item">
+        <input type="radio" id="cs-black" name="color" value="black" onchange="this.form.submit();"
+        >
+        <label class="cs-black" for="cs-black">Black</label>
+      </div>
+      <div class="cs-item">
+        <input type="radio" id="cs-violet" name="color" value="violet" onchange="this.form.submit();">
+        <label class="cs-violet" for="cs-violet">Violet</label>
+      </div>
+      <div class="cs-item">
+        <input type="radio" id="cs-blue" name="color" value="blue" onchange="this.form.submit();">
+        <label class="cs-blue" for="cs-blue">Blue</label>
+      </div>
+      <div class="cs-item">
+        <input type="radio" id="cs-yellow" name="color" value="yellow" onchange="this.form.submit();">
+        <label class="cs-yellow" for="cs-yellow">Yellow</label>
+      </div>
+      <div class="cs-item">
+        <input type="radio" id="cs-red" name="color" value="red" onchange="this.form.submit();">
+        <label class="cs-red" for="cs-red">Red</label>
+      </div>
+      <div class="cs-item">
+        <input type="radio" id="cs-green" name="color" value="green" onchange="this.form.submit();">
+        <label class="cs-green" for="cs-green">Green</label>
+      </div>
+    </div>
+  </div>
+  <div class="filter-widget">
+    <h4 class="fw-title">Size</h4>
+    <div class="fw-size-choose">
+      <div class="sc-item">
+        <input type="radio" id="s-size" name="size" value="s" onchange="this.form.submit();">
+        <label for="s-size" class="active">s</label>
+      </div>
+      <div class="sc-item">
+        <input type="radio" id="m-size" name="size" value="m" onchange="this.form.submit();">
+        <label for="m-size" class="">m</label>
+      </div>
+      <div class="sc-item">
+        <input type="radio" id="l-size" name="size" value="l" onchange="this.form.submit();">
+        <label for="l-size" class="">l</label>
+      </div>
+      <div class="sc-item">
+        <input type="radio" id="xs-size" name="size" value="xs" onchange="this.form.submit();">
+        <label for="xs-size" class="">xs</label>
+      </div>
+    </div>
+  </div>
+  <div class="filter-widget">
+    <h4 class="fw-title">Tags</h4>
+    <div class="fw-tags">
+      <a href="#">Towel</a>
+      <a href="#">Shoes</a>
+      <a href="#">Coat</a>
+      <a href="#">Dresses</a>
+      <a href="#">Trousers</a>
+      <a href="#">Men's hats</a>
+      <a href="#">Backpack</a>
+    </div>
+  </div>
+</form>
+

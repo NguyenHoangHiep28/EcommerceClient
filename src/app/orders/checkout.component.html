@@ -1,0 +1,299 @@
+    <!-- Breadcrumb Section Begin -->
+    <div class="breacrumb-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-text product-more">
+                        <a href=""><i class="fa fa-home"></i> Home</a>
+                        <a href="">Account</a>
+                        <span>My Orders</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb Section Begin -->
+
+    <!-- Shopping Cart Section Begin -->
+    <section class="checkout-section spad">
+        <div class="container">
+            <form #sortForm="ngForm" (ngSubmit)="onSubmit(sortForm)" class="checkout-form">
+                <div class="row">
+                        <!-- <div class="col-lg-6">
+                            <h4>Billing Details</h4>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <label for="fir">First Name<span>*</span></label>
+                                    <input type="text" id="fir" name="first_name">
+                                </div>
+                                <div class="col-lg-6">
+                                    <label for="last">Last Name<span>*</span></label>
+                                    <input type="text" id="last" name="last_name">
+                                </div>
+                                <div class="col-lg-12">
+                                    <label for="cun-name">Company Name</label>
+                                    <input type="text" id="cun-name" name="company_name">
+                                </div>
+                                <div class="col-lg-12">
+                                    <label for="cun">Country<span>*</span></label>
+                                    <input type="text" id="cun" name="country">
+                                </div>
+                                <div class="col-lg-12">
+                                    <label for="street">Street Address<span>*</span></label>
+                                    <input type="text" id="street" class="street-first" name="street_address">
+                                </div>
+                                <div class="col-lg-12">
+                                    <label for="zip">Postcode / ZIP (optional)</label>
+                                    <input type="text" id="zip" name="postcode_zip">
+                                </div>
+                                <div class="col-lg-12">
+                                    <label for="town">Town / City<span>*</span></label>
+                                    <input type="text" id="town" name="town_city">
+                                </div>
+                                <div class="col-lg-6">
+                                    <label for="email">Email Address<span>*</span></label>
+                                    <input type="text" id="email" name="email">
+                                </div>
+                                <div class="col-lg-6">
+                                    <label for="phone">Phone<span>*</span></label>
+                                    <input type="text" id="phone" name="phone">
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="create-item">
+                                        <label for="acc-create">
+                                            Create an account?
+                                            <input type="checkbox" id="acc-create">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                        <div class="col-lg-12">
+                            <div class="place-order">
+                                <h4>Orders</h4>
+                                <form #sortForm="ngForm" (ngSubmit)="onSubmit(sortForm)">
+                                    <div class="row filter-list" style="display: flex;">
+                                        <div class="input-group">
+                                            <div class="filter-container">
+                                                <select class="sorting" name="sort_by_date" [(ngModel)]="filter.createdDate" (change)="onSubmit(sortForm)">
+                                                  <option value="latest">Sorting : Latest</option>
+                                                  <option value="oldest">Sorting : Oldest</option>
+                                                </select>
+                                            </div>
+                                            <div class="filter-container">
+                                                    <select class="sorting" name="sort_by_status"  [(ngModel)]="filter.status" (change)="onSubmit(sortForm)">
+                                                        <option value="-1">Status : All</option>
+                                                        <option value="0">Status : Rejected</option>
+                                                      <option value="1">Status : Pending</option>
+                                                      <option value="2">Status : Processing</option>
+                                                      <option value="3">Status : On Delivery</option>
+                                                      <option value="4">Status : Delivered</option>
+                                                    </select>
+                                            </div>
+                                            <div class="filter-container">
+    
+                                                    <select class="sorting" name="sort_by_total"  [(ngModel)]="filter.total"  (change)="onSubmit(sortForm)">
+                                                        <option value="none">TotalSorting : None</option>
+                                                      <option value="descending">Total : Descending</option>
+                                                      <option value="ascending">Total : Ascending</option>
+                                                    </select>
+    
+                                            </div>
+                                            <div class="filter-container">
+                                                
+                                                    <input name="start-date-search" type="date" [max]="filter.dateBetween.endDate != null ? filter.dateBetween.endDate : currentDate " [(ngModel)]="filter.dateBetween.startDate"> 
+                                                
+                                            </div>
+                                        
+                                              <div class="filter-container">
+                                                
+                                                    <input name="end-date-search" type="date" [min]="filter.dateBetween.startDate" [max]="currentDate" [(ngModel)]="filter.dateBetween.endDate">
+                                                
+                                            </div>
+                                            <div class="filter-container">
+                                                
+                                                    <input name="name-search" type="text"  [(ngModel)]="filter.userName"  placeholder="Enter customer name">
+                                                
+                                            </div>
+                                            <div class="filter-container">
+                                                
+                                                    <input name="phone-search" type="text" [(ngModel)]="filter.phone" placeholder="Enter customer phone">
+                                                
+                                            </div>
+                                            <div class="filter-container">
+                                                
+                                                    <input name="email-search" type="text" [(ngModel)]="filter.email" placeholder="Enter customer email">
+                                                
+                                            </div>
+                                            <div class="filter-container">
+                                                
+                                                    <input name="orderId-search" type="text" [(ngModel)]="filter.orderId" placeholder="Enter Order Id">
+                                                
+                                            </div>
+                                            <div class="filter-container">
+                                                
+                                                    <input name="orderId-search" type="text" [(ngModel)]="filter.productName" placeholder="Enter product name">
+                                                
+                                            </div>
+                                            <div class="filter-container">
+                                                    <button class="btn btn-warning search-btn" type="submit">Search</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                  </form>
+                                <!-- <div class="order-total">
+                                    <ul class="order-table">
+                                        <li>Product <span>Total</span></li>
+
+                                            <li class="fw-normal">productname x 2 <span>$unitprice</span></li>
+
+                                        <li class="fw-normal">Subtotal <span>$100</span></li>
+                                        <li class="total-price">Total <span>$200</span></li>
+                                    </ul>
+                                </div> -->
+                                <ng-template #content let-modal>
+                                    <div class="modal-header">
+                                      <h2 class="modal-title">Order Detail</h2>
+                                      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <table class="table">
+                                            <thead class="thead-light">
+                                              <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Product Name</th>
+                                                <th scope="col" class="text-center">Quantity</th>
+                                                <th scope="col" class="text-center">Unit Price</th>
+                                                <th scope="col" class="text-center">Status</th>
+                                                <th scope="col" class="text-center">Total</th>
+                                                <th scope="col" class="text-center">Customer Name</th>
+                                                <th scope="col" class="text-center">Phone</th>
+                                                <th scope="col" class="text-center">Email</th>
+                                                <th scope="col" class="text-center">Address</th> 
+                                                <th scope="col" class="text-center">Time</th>
+                                                <!-- <th scope="col" class="text-center">Action</th> -->
+                                              </tr>
+                                            </thead>
+                                            <tbody>
+                                              <ng-container *ngFor="let ordDetail of detail.orderDetails; let i = index;">
+                                                  
+                                                <tr>
+                                                    <th class="align-middle" *ngIf="i == 0" [attr.rowspan]="detail.orderDetails.length + 1">
+                                                        <!-- <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                                        </div> -->
+                                                         {{detail.id}}
+                                                </th>
+                                                    <td class="text-center align-middle">{{ordDetail.product.name}}</td>
+                                                    <td class="text-center align-middle">{{ordDetail.quantity}}</td>
+                                                    <td class="text-center align-middle">{{ordDetail.unitPrice | currency:'VND'}}</td>
+                                                    <td class="text-center align-middle" *ngIf="i == 0" [attr.rowspan]="detail.orderDetails.length + 1">
+                                                        <span class="badge badge-success" *ngIf="detail.status == 1">Pending</span>
+                                                        <span class="badge badge-primary" *ngIf="detail.status == 2">Processing</span>
+                                                        <span class="badge badge-warning" *ngIf="detail.status == 3">On Delivery</span>
+                                                        <span class="badge badge-secondary" *ngIf="detail.status == 4">Delivered</span>
+                                                        <span class="badge badge-danger" *ngIf="detail.status == 0">Rejected</span>
+                                                    </td>
+                                                    <td class="text-center align-middle" *ngIf="i == 0" [attr.rowspan]="detail.orderDetails.length + 1">{{detail.totalPrice | currency:'VND'}}</td>
+                                                    <td class="text-center align-middle" *ngIf="i == 0" [attr.rowspan]="detail.orderDetails.length + 1">{{detail.user.accountName}}</td>
+                                                    <td class="text-center align-middle" *ngIf="i == 0" [attr.rowspan]="detail.orderDetails.length + 1">{{detail.user.phoneNumber}}</td>
+                                                    <td class="text-center align-middle" *ngIf="i == 0" [attr.rowspan]="detail.orderDetails.length + 1">{{detail.user.email}}</td>
+                                                    <td class="text-center align-middle" *ngIf="i == 0" [attr.rowspan]="detail.orderDetails.length + 1">{{detail.user.address}}</td>
+                                                    <td class="text-center align-middle" *ngIf="i == 0" [attr.rowspan]="detail.orderDetails.length + 1">{{detail.createdAt | date : 'dd/mm/yyyy, HH:mm:ss'}}</td>
+        
+                                                </tr>
+                                              </ng-container>  
+                                            </tbody>
+                                          </table>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <ng-container *ngIf="detail.status == 1">
+                                            <button class="btn btn-success"><i class="fa fa-check"></i>Accept</button>
+                                            <button class="btn btn-danger"><i class="fa fa-close"></i>Reject</button>
+                                        </ng-container>
+                                        <button *ngIf="detail.status == 2" class="btn btn-warning"><i class="fa fa-truck"></i> Start Delivery</button>
+                                        <button *ngIf="detail.status == 3" class="btn btn-success"><i class="fa fa-check-circle"></i> Mark As Delivered</button>
+                                        <button *ngIf="detail.status == 4" class="btn btn-secondary"><i class="fa fa-eye"></i> View Confirm Receive</button>
+                                        <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+                                    </div>
+                                </ng-template>
+                                <h4>{{total}} {{filterDescription}}</h4><button class="btn btn-primary search-btn" (click)="clear()">Clear</button>
+                                <table class="table">
+                                    <thead class="thead-light">
+                                      <tr>
+                                        <th scope="col"></th>
+                                        <th scope="col">#</th>
+                                        <!-- <th scope="col">Product Name</th>
+                                        <th scope="col" class="text-center">Quantity</th>
+                                        <th scope="col" class="text-center">Unit Price</th> -->
+                                        <th scope="col" class="text-center">Status</th>
+                                        <th scope="col" class="text-center">Total</th>
+                                        <!-- <th scope="col" class="text-center">Customer Name</th>
+                                        <th scope="col" class="text-center">Phone</th>
+                                        <th scope="col" class="text-center">Email</th> -->
+                                        <!-- <th scope="col" class="text-center">Address</th> -->
+                                        <th scope="col" class="text-center">Time</th>
+                                        <th scope="col" class="text-center">Action</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                    <ng-container *ngFor="let order of orders| paginate: {itemsPerPage: itemsPerPage, currentPage: p, totalItems: total}">
+                                        <tr>
+                                            <th>
+                                                <div class="form-check">
+                                                            <input value="{{order.id}}" class="form-check-input checkone" type="checkbox" value="" id=" ">
+                                                        </div>
+                                            </th>
+                                            <th class="align-middle">
+                                                {{order.id}}
+                                            </th>
+                                           <!-- <td>{{detail.product.name}}</td>
+                                           <td class="text-center align-middle">{{detail.quantity}}</td>
+                                           <td class="text-center align-middle">{{detail.unitPrice | currency:'VND'}}</td> -->
+                                           <td class="text-center align-middle">
+                                               <span class="badge bg-success" *ngIf="order.status == 1">Pending</span> 
+                                               <span class="badge bg-primary" *ngIf="order.status == 2">Processing</span>
+                                               <span class="badge bg-warning" *ngIf="order.status == 3">On Delivery</span>
+                                               <span class="badge bg-secondary" *ngIf="order.status == 4">Delivered</span>
+                                               <span class="badge bg-danger" *ngIf="order.status == 0">Rejected</span>
+                                           </td>
+                                           <td class="text-center align-middle">{{order.totalPrice | currency:'VND'}}</td>
+                                           <!-- <td class="text-center align-middle" *ngIf="i == 0">{{order.user.accountName}}</td>
+                                           <td class="text-center align-middle" *ngIf="i == 0">{{order.user.phoneNumber}}</td>
+                                           <td class="text-center align-middle" *ngIf="i == 0">{{order.user.email}}</td> -->
+                                           <!-- <td class="text-center align-middle">{{order.user.address}}</td> -->
+                                           <td class="text-center align-middle">{{order.createdAt | date : 'dd/mm/yyyy, HH:mm:ss'}}</td>
+                                           <td class="text-center align-middle">
+                                               <button class="btn btn-primary" type="button" (click)="openXl(content, order.id)"><i class="fa fa-eye"></i> Detail</button>
+                                               <ng-container *ngIf="order.status == 1">
+                                                   <button class="btn btn-success" type="button"><i class="fa fa-check"></i> Accept</button>
+                                                   <button class="btn btn-danger" type="button"><i class="fa fa-close"></i> Reject</button>
+                                               </ng-container>
+                                               <button *ngIf="order.status == 2" class="btn btn-warning"><i class="fa fa-truck"></i> Start Delivery</button>
+                                               <button *ngIf="order.status == 3" class="btn btn-success"><i class="fa fa-check-circle"></i> Mark As Delivered</button>
+                                               <button *ngIf="order.status == 4" class="btn btn-secondary"><i class="fa fa-eye"></i> View Confirm Receive</button>
+                                           </td>
+                                        </tr>
+                                        
+                                    </ng-container>
+                                    </tbody>
+                                  </table>
+                   
+                            </div>
+                            <div class="container text-center">
+                                <pagination-controls (pageChange)="pageChangeEvent($event)"></pagination-controls>
+                              </div>
+                        </div>
+
+                        <!-- <div class="col-lg-12">
+                            <h4>Your cart is empty.</h4>
+                        </div> -->
+
+                </div>
+            </form>
+        </div>
+    </section>
+    <!-- Shopping Cart Section End -->
+

@@ -27,9 +27,30 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              
+              "src/assets/front/css/elegant-icons.css",
+              "src/assets/front/css/font-awesome.min.css",
+              "src/assets/front/css/jquery-ui.min.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/assets/front/css/owl.carousel.min.css",
+              "src/assets/front/css/slicknav.min.css",
+              "src/assets/front/css/themify-icons.css",
+              "src/styles.css",
+              "src/assets/front/css/style.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/front/js/jquery-3.3.1.min.js",
+              "src/assets/front/js/imagesloaded.pkgd.min.js",
+              "src/assets/front/js/jquery-ui.min.js",
+              "src/assets/front/js/jquery.countdown.min.js",
+              "src/assets/front/js/jquery.dd.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "src/assets/front/js/jquery.slicknav.js",
+              "src/assets/front/js/jquery.zoom.min.js",
+              "src/assets/front/js/owl.carousel.min.js",
+              "src/assets/front/js/owlcarousel2-filter.min.js",
+              "src/assets/front/js/main.js"
+            ]
           },
           "configurations": {
             "production": {

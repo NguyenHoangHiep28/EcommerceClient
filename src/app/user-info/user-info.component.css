@@ -1,0 +1,10 @@
+.info-input {
+    padding: 20px;
+}
+.input {
+    width: 100%;
+    padding: 5px;
+}
+.input-on{
+    border: 1px solid gainsboro;
+}

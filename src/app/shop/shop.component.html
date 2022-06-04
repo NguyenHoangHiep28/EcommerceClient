@@ -1,0 +1,91 @@
+<!-- Breadcrumb Section Begin -->
+<div class="breacrumb-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="breadcrumb-text">
+          <a href="#"><i class="fa fa-home"></i> Home</a>
+          <span>Shop</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Breadcrumb Section Begin -->
+
+<!-- Product Shop Section Begin -->
+<section class="product-shop spad">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 produts-sidebar-filter">
+        <app-sidebar></app-sidebar>
+      </div>
+      <div class="col-lg-9 order-1 order-lg-2">
+        <div class="product-show-option">
+          <div class="row">
+            <div class="col-lg-7 col-md-7">
+              <form #sortForm="ngForm" (ngSubmit)="onSubmit(sortForm)" >
+                <div class="select-option">
+                  <select class="sorting" name="sort_by" [(ngModel)]="filter.sortBy" (change)="onSubmit(sortForm)">
+                    <option value="latest">Sorting : Latest</option>
+                    <option value="oldest">Sorting : Oldest</option>
+                    <option value="name-ascending">Sorting : Name A-Z</option>
+                    <option value="name-descending">Sorting : Name Z-A</option>
+                    <option value="price-ascending">Sorting : Price Ascending</option>
+                    <option value="price-descending">Sorting : Price Descending</option>
+                  </select>
+                  <select class="p-show" name="show" [(ngModel)]="filter.show" (change)="onSubmit(sortForm)">
+                    <option *ngFor="let showOption of showOptions" [ngValue]="showOption.showValue">{{showOption.showTitle}}</option>
+                  </select>
+                </div>
+              </form>
+            </div>
+            <div class="col-lg-5 col-md-5 text-right">
+            </div>
+          </div>
+        </div>
+        <div class="product-list">
+          <div class="row">
+            <div *ngFor="let product of products| paginate: {itemsPerPage: itemsPerPage, currentPage: p, totalItems: total}" class="col-lg-4 col-sm-6">
+              <div class="product-item item Clothing">
+                <div class="pi-pic">
+                  <img src="../../assets/front/img/{{product.thumbnails}}" alt="">
+                  
+                  <div class="sale">Sale</div>
+
+                  <div class="icon">
+                    <i class="icon_heart_alt"></i>
+                  </div>
+                  <ul>
+                    <li class="w-icon active"><a style="cursor: pointer;" (click)="addToCart(product.id)"><i class="icon_bag_alt"></i></a></li>
+                    <li class="quick-view"><a href="">+ Quick View</a></li>
+                    <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
+                  </ul>
+                </div>
+                <div class="pi-text">
+                  <!-- <div class="catagory-name">{{product.tag}}</div> -->
+                  <a href="">
+                    <h5>{{product.name}}</h5>
+                  </a>
+                  <div class="product-price">
+                    {{product.price}} VND
+                    <!-- <span>${{product.price}}</span> -->
+                  </div>
+                  <!-- <ng-template #no_discount>
+                    <div class="product-price">
+                      ${{product.price}}
+                    </div>
+                  </ng-template> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container text-center">
+          <pagination-controls (pageChange)="pageChangeEvent($event)"></pagination-controls>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Product Shop Section End -->
