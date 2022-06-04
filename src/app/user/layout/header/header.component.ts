@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import { Subscription } from 'rxjs';
-import { AuthenticationService } from 'src/app/services/authentication.service';
-import { CartService } from 'src/app/services/cart.service';
-import { DataSharingServiceService } from 'src/app/services/data-sharing-service.service';
-import { TokenStorageServiceService } from 'src/app/services/token-storage-service.service';
-import { UserProfileService } from 'src/app/services/user-profile.service';
+import { AuthenticationService } from 'src/app/user/services/authentication.service';
+import { CartService } from 'src/app/user/services/cart.service';
+import { DataSharingServiceService } from 'src/app/user/services/data-sharing-service.service';
+import { TokenStorageServiceService } from 'src/app/user/services/token-storage-service.service';
+import { UserProfileService } from 'src/app/user/services/user-profile.service';
 const ACCESS_TOKEN_KEY = 'access-token';
 const REFRESH_TOKEN_KEY =  'refresh-token';
 @Component({

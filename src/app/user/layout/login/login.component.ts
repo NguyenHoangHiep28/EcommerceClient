@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthenticationService } from 'src/app/services/authentication.service';
-import { DataSharingServiceService } from 'src/app/services/data-sharing-service.service';
-import { TokenStorageServiceService } from 'src/app/services/token-storage-service.service';
+import { AuthenticationService } from 'src/app/user/services/authentication.service'
+import { DataSharingServiceService } from 'src/app/user/services/data-sharing-service.service';
+import { TokenStorageServiceService } from 'src/app/user/services/token-storage-service.service';
 const ACCESS_TOKEN_KEY = 'access-token';
 const REFRESH_TOKEN_KEY =  'refresh-token';
 @Component({

@@ -13,7 +13,7 @@
         </div>
       </div>
       <div class="ht-right">
-        <a [routerLink]="['/login']" *ngIf="authenticated == ''" style="cursor: pointer;" class="login-panel"><i class="fa fa-user"></i>Login</a>
+        <a [routerLink]="['/user/login']" *ngIf="authenticated == ''" style="cursor: pointer;" class="login-panel"><i class="fa fa-user"></i>Login</a>
         <a *ngIf="authenticated != ''" style="cursor: pointer;" class="login-panel" (click)="signOut()"><i class="fa fa-sign-out"></i>Sign out</a>
         <div class="lan-selector">
           <select class="language_drop" name="countries" id="countries" style="width:300px;">
@@ -106,7 +106,7 @@
                   <h5 *ngIf="shoppingCart != null">{{shoppingCart.total | currency:'VND'}}</h5>
                 </div>
                 <div class="select-button">
-                  <a href="" class="primary-btn view-card">VIEW CARD</a>
+                  <a [routerLink]="['/user/cart']" class="primary-btn view-card">VIEW CARD</a>
                   <a href="" class="primary-btn checkout-btn">CHECK OUT</a>
                 </div>
               </div>
@@ -138,7 +138,7 @@
       <nav class="nav-menu mobile-menu">
         <ul>
           <li class=""><a href="./">Home</a></li>
-          <li class=""><a href="./shop">Shop</a></li>
+          <li class=""><a [routerLink]="['/user/shop']">Shop</a></li>
           <li><a href="#">Collection</a>
             <ul class="dropdown">
               <li><a href="#">Men's</a></li>
